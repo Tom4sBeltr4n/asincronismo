@@ -1,15 +1,25 @@
 /* 
 
 Definición estructura Callback
-Para poder entender el manejo asincrónico de JS, hemos de entender el concepto de callback. Callback es una función que pasamos como argumento a otra para que se ejecute dentro de esta
+Para poder entender el manejo asincrónico de JS, hemos de entender el concepto de callback. Callback es una función que pasamos como argumento a otra para que se ejecute dentro de esta. La podemos traducir como invoinvocable porque es una función que se ejecuta como parte del proceso de invocación de otra función.
+
 
 Peticiones a APIs usando Callbacks 
+
 Como se sabe, una API (por la sigla inglesa; en español sería IPA) es una interfaz programable de una aplicación; con la que se puede interactuar mediante código para poder tener más capacidades en un programa. 
 
 Para "llamar" a una API o su información, podemos sencillamente usar, desde Postman, el comando "GET" y la URL respectiva para traer su información. 
-Para usar desde JS, tenemos que instalar el paquete xmlhttprequest con npm. Luego, se crea un objeto que traiga el paquete y una función (fetchData) cuyo propósito es traer la información del sitio recibiendo como parámetros el URL y una función invocable. Dentro de ella, crearemos una variable que representará la petición. Como método suyo, usaremos open (iniciar una petición) con los argumentos "GET", el parámetro URL de la función y true. Luego, crearemos una función para invocar cada vez que cambie el estado de la petición (onreadystatechange), a la que le daremos por parámetro "event". Dentro de ella, revisaremos que su valor sea 4 (respuesta del servidor lista) y cuando ocurra, revisaremos que el valor del estado de la respuesta sea 200 (todo correcto), y si no, enviaremos un error.
+Para usar desde JS, tenemos que instalar el paquete xmlhttprequest con npm. Luego, se crea un objeto que traiga el paquete y una función (fetchData) cuyo propósito es traer la información del sitio recibiendo como parámetros el URL y una función invoinvocable. Dentro de ella, crearemos una variable que representará la petición. Como método suyo, usaremos open (iniciar una petición) con los argumentos "GET", el parámetro URL de la función y true. Luego, crearemos una función para invocar cada vez que cambie el estado de la petición (onreadystatechange), a la que le daremos por parámetro "event". Dentro de ella, revisaremos que su valor sea 4 (respuesta del servidor lista) y cuando ocurra, revisaremos que el valor del estado de la respuesta sea 200 (todo correcto), y si no, enviaremos un error.
 
-La función invocable de que se pasa como argumento de fetchData tendrá por primer parámetro un error y por segundo un resultado correcto. Esto es así por estándar
+La función invoinvocable de que se pasa como argumento de fetchData tendrá por primer parámetro un error y por segundo un resultado correcto. Esto es así por estándar
+
+
+Múltiples Peticiones a una API con Callbacks
+
+Aunque es posible realizar peticiones una por una, podemos utilizar una función invoinvocable (callback; que se usa como argumento) para realizar varias simultáneamente. Sin embargo, esto no es siempre buena práctica; podemos entrar en lo que se llama infierno invoinvocable. Esto es malo porque el código se hace difícil de leer y probar.
+
+
+Vale la pena, como apunte general, recalcar la importancia de una comprensión previa de la información que la API nos va a traer.
 */ 
 
 //Comentarios puestos en JS por mí a medida que trabajo
