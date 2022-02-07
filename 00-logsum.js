@@ -5,7 +5,6 @@ Para poder entender el manejo asincrónico de JS, hemos de entender el concepto 
 
 
 Peticiones a APIs usando Callbacks 
-
 Como se sabe, una API (por la sigla inglesa; en español sería IPA) es una interfaz programable de una aplicación; con la que se puede interactuar mediante código para poder tener más capacidades en un programa. 
 
 Para "llamar" a una API o su información, podemos sencillamente usar, desde Postman, el comando "GET" y la URL respectiva para traer su información. 
@@ -15,14 +14,13 @@ La función invoinvocable de que se pasa como argumento de fetchData tendrá por
 
 
 Múltiples Peticiones a una API con Callbacks
-
 Aunque es posible realizar peticiones una por una, podemos utilizar una función invoinvocable (callback; que se usa como argumento) para realizar varias simultáneamente. Sin embargo, esto no es siempre buena práctica; podemos entrar en lo que se llama infierno invoinvocable. Esto es malo porque el código se hace difícil de leer y probar.
 
 
 Vale la pena, como apunte general, recalcar la importancia de una comprensión previa de la información que la API nos va a traer.
 
-Implementando Promesas. 
 
+Implementando Promesas. 
 "promise" es un objeto. Su función es "prometer" al usuario que un evento sucederá o que algún código será ejecutado.
 
 Comprendamos la sintaxis de la promesa: dentro de la función constructora "Promise()" se pone el parámetro Executor(). Executor es una función invoinvocable (callback) que permite inicializar la promesa, y que tiene los parámetros resolve() y reject(). En ambos casos son funciones que podemos usar dependiendo del resultado de la promesa; resolve() para éxito y reject() para fracaso. El contenido de Executor (lo que va entre llaves {}) está a nuestra discreción, pero cuando queramos hacer operaciones asincronas, usaremos resolve(), al que le daremso valor cuando invoquemos a Promise y le fijemos .then(). Cuando algo indeseado suceda, usaremos reject() y su valor será el segundo parámetro de then o catch.
@@ -30,7 +28,13 @@ Comprendamos la sintaxis de la promesa: dentro de la función constructora "Prom
 También vale la pena notar que Promise normalmente se ejecuta cuando se carga el archivo. Si la ponemos como resultado de una función, evitamos que se ejecute de modo inmediato, sino sólo cuando la función contenedora sea invocada, permitiendo controlar la promesa a voluntad. 
 
 Al invocar la función que resulta en la promesa, debemos poner en la siguiente línea los métodos "then" y "catch". Ellos nos permitirán decirle a la promesa qué hacer cuando resuelva o rechace. Destaca que .then() puede (= es opcional) tener un segundo parámetro para cubrir el rechazo. También podemos poner varios .then juntos para que funcione como un operador de tubo, es decir, el retorno del primero es un argumento para el lanzamiento del segundo.
+
+
+Resolver el problema con Promesas
+Del mismo modo que con los callbacks, las promesas pueden resolver nuestro reto.
 */ 
+
+
 
 //Comentarios puestos en JS por mí a medida que trabajo
 /*
