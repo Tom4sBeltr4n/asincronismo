@@ -20,6 +20,16 @@ Aunque es posible realizar peticiones una por una, podemos utilizar una función
 
 
 Vale la pena, como apunte general, recalcar la importancia de una comprensión previa de la información que la API nos va a traer.
+
+Implementando Promesas. 
+
+"promise" es un objeto. Su función es "prometer" al usuario que un evento sucederá o que algún código será ejecutado.
+
+Comprendamos la sintaxis de la promesa: dentro de la función constructora "Promise()" se pone el parámetro Executor(). Executor es una función invoinvocable (callback) que permite inicializar la promesa, y que tiene los parámetros resolve() y reject(). En ambos casos son funciones que podemos usar dependiendo del resultado de la promesa; resolve() para éxito y reject() para fracaso. El contenido de Executor (lo que va entre llaves {}) está a nuestra discreción, pero cuando queramos hacer operaciones asincronas, usaremos resolve(), al que le daremso valor cuando invoquemos a Promise y le fijemos .then(). Cuando algo indeseado suceda, usaremos reject() y su valor será el segundo parámetro de then o catch.
+
+También vale la pena notar que Promise normalmente se ejecuta cuando se carga el archivo. Si la ponemos como resultado de una función, evitamos que se ejecute de modo inmediato, sino sólo cuando la función contenedora sea invocada, permitiendo controlar la promesa a voluntad. 
+
+Al invocar la función que resulta en la promesa, debemos poner en la siguiente línea los métodos "then" y "catch". Ellos nos permitirán decirle a la promesa qué hacer cuando resuelva o rechace. Destaca que .then() puede (= es opcional) tener un segundo parámetro para cubrir el rechazo. También podemos poner varios .then juntos para que funcione como un operador de tubo, es decir, el retorno del primero es un argumento para el lanzamiento del segundo.
 */ 
 
 //Comentarios puestos en JS por mí a medida que trabajo
@@ -39,4 +49,6 @@ callback(null, JSON.parse(xhttp.responseText)); //la empresa ejecuta las instruc
 else { //Si salió mal el corte, la empresa nos envía una carta diciendo que falló el pedido, como se lo pedimos
 xhttp.send();//Inicia el corte; se envía la madera a la máquina
 
+//Sobre la clase Error
+Esta genera un reporte sobre la excepción (línea, etc.) y es más profunda que un simple console.error()
 */

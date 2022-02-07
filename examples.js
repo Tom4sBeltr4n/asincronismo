@@ -37,7 +37,7 @@ const somethingWillHappen = () =>
 {
   //para comprender la sintaxis de la promesa: dentro de la función constructora "Promise()" se pone el parámetro Executor(). Executor es una función invoinvocable (callback) que permite inicializar la promesa, y que tiene los parámetros resolve() y reject(). En ambos casos son funciones que podemos usar dependiendo del resultado de la promesa; resolve() para éxito y reject() para fracaso. En este caso, usaremos una arrow function para inicializar a "Executor". También vale la pena notar que ponemos Promise como resultado para evitar que se ejecute de modo inmediato, sino cuando somethingWillHappen sea invocada, permitiendo controlar la promesa
   return new Promise((resolve, reject) => {
-    if(false)
+    if(true)
     {
       resolve('Hey!');
     } else {
@@ -50,4 +50,33 @@ somethingWillHappen()
   .then(response => console.log(response))//al invocar la promesa, debemos poner en la siguiente línea los métodos "then" y "catch". Ellos nos permitirán decirle a la promesa qué hacer cuando resuelva o rechace. Destaca que .then() puede (= es opcional) tener un segundo parámetro para cubrir el rechazo.
   .catch(err => console.error(err));
 
-let i = 2;
+const somethingWillHappen2 = () =>
+{
+  return new Promise((resolve, reject) => 
+  {
+    if(true)
+    {
+      setTimeout(()=>
+      {
+        resolve('True');
+      }, 2000)
+    } else {
+      const error = new Error('Whoop!');//Class Error sends a better throw debugging output
+      reject(error);
+    }
+  });
+}
+
+somethingWillHappen2()
+  .then(response => {console.log(response)})
+  .catch((err) => console.error(err));
+
+Promise.all([somethingWillHappen(),somethingWillHappen2()])
+  .then(response =>
+    {
+      console.log('Array of results:', response)
+    })
+  .catch(err => 
+    {
+      console.error(err);
+    });
