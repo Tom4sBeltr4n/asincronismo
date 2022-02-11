@@ -32,7 +32,39 @@ Al invocar la función que resulta en la promesa, debemos poner en la siguiente 
 
 Resolver el problema con Promesas
 Del mismo modo que con los callbacks, las promesas pueden resolver nuestro reto.
+
+
+Conociendo async y await
+"async" y "await" son palabras reservadas dentro de JavaScript que buscan facilitar la lectura de la sintaxis de promesas. Aunque sí emplea la clase "Promise", no utiliza then, sino try{} ... catch {}  (una sintaxis ya usada en otros ámbitos de JavaScript) y funciona con funciones.
+Sintaxis:*/
+const funciónEntregaPromesas = function ()
+{return new Promise((resolve,reject)=>{true ? resolve("potatoe") : reject("chicken")})}
+
+const funciónAsync = async () =>{
+  try {
+    const invocarPromesa = await funciónEntregaPromesas();
+    //(operar lo que debamos con con invocarPromesa, por ejemplo, console.log())
+    console.log(invocarPromesa);
+  } catch(error) {
+    console.error(error)
+  };
+}
+
+console.log("Acción 1")
+funciónAsync()
+console.log("Acción que sucede al 'tiempo' que la función Async")
+/*
+La función "funciónAsync" es asíncrona con respecto al resto del script, pero en su interior es síncrona. Cuando se invoca, se ejecuta mientras el resto del script sucede, dando la apariencia de que sucede después del resto del script, pero no es así.
 */ 
+
+
+
+
+
+
+
+
+
 
 
 
