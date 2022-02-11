@@ -30,10 +30,6 @@ También vale la pena notar que Promise normalmente se ejecuta cuando se carga e
 Al invocar la función que resulta en la promesa, debemos poner en la siguiente línea los métodos "then" y "catch". Ellos nos permitirán decirle a la promesa qué hacer cuando resuelva o rechace. Destaca que .then() puede (= es opcional) tener un segundo parámetro para cubrir el rechazo. También podemos poner varios .then juntos para que funcione como un operador de tubo, es decir, el retorno del primero es un argumento para el lanzamiento del segundo.
 
 
-Resolver el problema con Promesas
-Del mismo modo que con los callbacks, las promesas pueden resolver nuestro reto.
-
-
 Conociendo async y await
 "async" y "await" son palabras reservadas dentro de JavaScript que buscan facilitar la lectura de la sintaxis de promesas. Aunque sí emplea la clase "Promise", no utiliza then, sino try{} ... catch {}  (una sintaxis ya usada en otros ámbitos de JavaScript) y funciona con funciones.
 Sintaxis:*/
