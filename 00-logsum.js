@@ -51,6 +51,27 @@ funciónAsync()
 console.log("Acción que sucede al 'tiempo' que la función Async")
 /*
 La función "funciónAsync" es asíncrona con respecto al resto del script, pero en su interior es síncrona. Cuando se invoca, se ejecuta mientras el resto del script sucede, dando la apariencia de que sucede después del resto del script, pero no es así.
+
+
+Callbacks vs Promesas vs Async/Await
+Invoinvocables:
+- Son simples de escribir y vainilla; fáciles de entender. No usan nueva sintaxis.
+- Universales; son portables por ser viejas
+- Antiestéticos. 
+- Infierno invoinvocable.
+
+Promesas: 
+- Fácilmente enlazable
+  - Requiere que recordemos darle "return " al final de cada iteración (salvo la última) para que funcione.
+- "Poderosas" (?)
+- Usa .catch con el error
+- Requiere de Babel u otro "polyfill", es decir, una herramienta que pueda funcionar en navegadores más anticuados.
+
+Async+Await
+- Usamos try catch, algo más común y tradicional try{}...catch{}
+- Más fácil de leer.
+- Cada instancia de promesa (cada await) requiere de espera.
+- Requiere de "polyfill"
 */ 
 
 
