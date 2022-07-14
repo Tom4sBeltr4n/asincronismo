@@ -1,5 +1,5 @@
 /* 
-link: https://platzi.com/clases/examen/resultados/3175/
+https://platzi.com/cursos/asincronismo-js/
 Definición estructura Callback
 Para poder entender el manejo asincrónico de JS, hemos de entender el concepto de callback. Callback es una función que pasamos como argumento a otra para que se ejecute dentro de esta. La podemos traducir como invoinvocable porque es una función que se ejecuta como parte del proceso de invocación de otra función.
 
